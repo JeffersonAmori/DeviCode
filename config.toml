@@ -1,0 +1,20 @@
+baseURL = 'https://devicode.io'
+languageCode = 'en-us'
+title = 'DeviCode'
+theme = 'puppet'
+
+[Params.giscus]
+	enable = "true"
+	repo = "JeffersonAmori/DeviCode"
+	repo_id = "R_kgDOIy2dsA"
+	category = "Announcements"
+	category_id = "DIC_kwDOIy2dsM4CTp-D"
+	mapping = "og:title"
+	strict = "0"
+	reactions_enabled = "1"
+	emit_metadata = "0"
+	input_position = "top"
+	theme = "light"
+	lang = "pt"
+	loading = "lazy"
+	crossorigin = "anonymous"

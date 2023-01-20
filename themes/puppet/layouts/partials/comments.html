@@ -1,0 +1,25 @@
+{{ if (ne .Params.comment false) -}}
+
+{{ if .Site.DisqusShortname }}
+{{ template "_internal/disqus.html" . }}
+{{ end }}
+
+{{ $giscus := .Site.Params.giscus }}
+{{ if $giscus.enable }}
+    <div class="giscus" id="comments"></div>
+    <script src="https://giscus.app/client.js"
+            data-repo="{{ $giscus.repo }}"
+            data-repo-id="{{ $giscus.repo_id }}"
+            data-category="{{ $giscus.category }}"
+            data-category-id="{{ $giscus.category_id }}"
+            data-mapping="{{ $giscus.mapping }}"
+            data-strict="{{ $giscus.strict }}"
+            data-reactions-enabled="{{ $giscus.reactions_enabled  }}"
+            data-emit-metadata="{{ $giscus.emit_metadata }}"
+            data-input-position="{{ $giscus.input_position | default "top" }}"
+            data-theme="{{ $giscus.theme | default "light" }}"
+            data-lang="{{ $giscus.lang | default "en" }}"
+            crossorigin="{{ $giscus.crossorigin }}">
+    </script>
+{{ end }}
+{{ end }}
