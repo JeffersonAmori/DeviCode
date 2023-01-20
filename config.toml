@@ -6,9 +6,9 @@ theme = 'puppet'
 [Params.giscus]
 	enable = "true"
 	repo = "JeffersonAmori/DeviCode"
-	repo_id = "R_kgDOIy2dsA"
+	repo_id = "R_kgDOIz_rQw"
 	category = "Announcements"
-	category_id = "DIC_kwDOIy2dsM4CTp-D"
+	category_id = "DIC_kwDOIz_rQ84CTtV0"
 	mapping = "og:title"
 	strict = "0"
 	reactions_enabled = "1"
