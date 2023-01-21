@@ -1,6 +1,6 @@
 +++
 author = "Jefferson Rocha"
-title = "Async não é sobre Performance"
+title = "#001 - Async não é sobre Performance"
 date = "2023-01-16"
 description = ""
 subtitle = "Quando pensamos em código assíncrono logo nos vem a mente ganhos em performance, mas esse não é exatamente o caso."
@@ -8,7 +8,7 @@ header_img = ""
 short = false
 toc = true
 tags = ["csharp", "performance tuning", "async", "dotnet"]
-categories = ["csharp", "performance tuning", "async", "dotnet"]
+categories = ["csharp", "async", "dotnet"]
 series = []
 comment = true
 +++
