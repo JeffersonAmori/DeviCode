@@ -1,7 +1,7 @@
 +++
 author = "Jefferson Rocha"
 title = "#002 - Os 5 princípios do SOLID"
-date = 2023-01-20T08:33:15Z
+date = 2023-01-23T08:33:15Z
 description = ""
 subtitle = "Os princípios do SOLID definem um conjundo de boas práticas para desenvolvimento de código de alta qualidade."
 header_img = ""
