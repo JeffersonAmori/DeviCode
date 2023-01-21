@@ -2,6 +2,7 @@ baseURL = 'https://devicode.io'
 languageCode = 'en-us'
 title = 'DeviCode'
 theme = 'puppet'
+googleAnalytics = "G-65SCCZ7Y92"
 
 [Params.giscus]
 	enable = "true"
