@@ -1,13 +1,13 @@
 +++
 author = "Jefferson Rocha"
 title = "Generator-Function in C# - como o yield funciona?"
-date = "2023-01-16"
+date = "2023-01-30"
 description = ""
 header_img = ""
 short = false
 toc = true
-tags = ["csharp", "async", "dotnet"]
-categories = ["csharp", "async", "dotnet"]
+tags = ["csharp", "yield", "IEnumerable", "LINQ"]
+categories = ["csharp", "yield", "IEnumerable", "LINQ"]
 series = []
 comment = true
 +++
