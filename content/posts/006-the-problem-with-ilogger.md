@@ -41,27 +41,26 @@ var employee = new Employee() { /* ... */};
 logger.Log(LogLevel.Information, "The Employee {name} makes {salary}.", employee.Name, employee.Salary);
 ```
 
-The problem with this approach is that, even if the information log level is not enabled in the production environment, we're still boxing (allocating into the heap) the salary value.
-This has no real value if no logging is done.
+The problem with this approach is that, even if the information log level is not enabled, we're still boxing (allocating into the heap) the salary value.
+This has no real value if no logs are generated.
 
 # Generics to the rescue
 
 By  using generics, we can avoid allocating `value-types` into the heap by avoiding the boxing from `decimal` into `object`.
 
 ```csharp
-void LogInformation<T1>(LogLevel logLevel, string message, T1 param1);
-void LogInformation<T1, T2>(LogLevel logLevel, string message, T1 param1, T2 param2);
+void Log<T1>(LogLevel logLevel, string message, T1 param1);
+void Log<T1, T2>(LogLevel logLevel, string message, T1 param1, T2 param2);
 ```
 
 By using generics in the signature the compiler can then figure out that the values we're passing to the logger are `reference-` or `value-types`, avoiding the unnecessary boxing.
 
 ⭐ **Important**: The more often the GC has to run to clear the heap, the bigger the performance penalty.
 
-If you're interested in how a implementation of a `LoggerAdapter` might look like, check out [this class](https://github.com/JeffersonAmori/HighLowGame/blob/master/LoggerAdapter/ILoggerAdapter.cs).
-
 # Benchmark
 
 Here's the benchmark for the `LoggerAdapter`, which can be ~20% faster when the log level is disabled.
+You can check out the implementation of `LoggerAdapter`, see [this class](https://github.com/JeffersonAmori/HighLowGame/blob/master/LoggerAdapter/ILoggerAdapter.cs).
 
 ``` text
 BenchmarkDotNet=v0.13.2, OS=Windows 10 (10.0.19045.2364)
