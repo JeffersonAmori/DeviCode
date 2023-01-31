@@ -1,6 +1,6 @@
 +++
 author = "Jefferson Rocha"
-title = "Generator-Function in C# - como o yield funciona?"
+title = "IEnumerable vs IQueryable - Qual a diferença?"
 date = "2023-01-30"
 description = ""
 header_img = ""
