@@ -8,22 +8,22 @@
 
   
     
-  <title>#005 | What are Fluent Validation and how to use them | DeviCode</title><meta name="description" content="Why would anyone use Fluent Validations?Consider the following Employee class:
-class Employee { public int Id { get; set; } public string Name { get; set; } public DateTime DateOfBirth {get; set; } } When we use fluent validation, we are not forced to separate our validation logic into another class, but it enables us to do so. For example, an app might have a general validation for any given employee, but the Finance module has more rules for the same class.">
+  <title>#001 | Async is not about Performance | DeviCode</title><meta name="description" content="ContextBefore we delve deeper, we need to know that:
+Task is the promise of a future value. Async is not the same thing as parallelism (multi-thread). Methods can be CPU-bound or IO-bound. CPU-bound relies on the CPU, while IO-bound refers to disks or network. Whenever the compiler finds the keyword, await a state machine is created to store the state of the context. What happens behind the scenesWhen we wait for a method with the keyword await we signal to the runtime that, if the thread that is waiting for the result of the asynchronous operation, it can return to the thread pool and execute other tasks.">
   <meta name="keywords" content="">
 
   <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="#005 | What are Fluent Validation and how to use them"/>
-<meta name="twitter:description" content="Why would anyone use Fluent Validations?Consider the following Employee class:
-class Employee { public int Id { get; set; } public string Name { get; set; } public DateTime DateOfBirth {get; set; } } When we use fluent validation, we are not forced to separate our validation logic into another class, but it enables us to do so. For example, an app might have a general validation for any given employee, but the Finance module has more rules for the same class."/>
+<meta name="twitter:title" content="#001 | Async is not about Performance"/>
+<meta name="twitter:description" content="ContextBefore we delve deeper, we need to know that:
+Task is the promise of a future value. Async is not the same thing as parallelism (multi-thread). Methods can be CPU-bound or IO-bound. CPU-bound relies on the CPU, while IO-bound refers to disks or network. Whenever the compiler finds the keyword, await a state machine is created to store the state of the context. What happens behind the scenesWhen we wait for a method with the keyword await we signal to the runtime that, if the thread that is waiting for the result of the asynchronous operation, it can return to the thread pool and execute other tasks."/>
 
-  <meta property="og:title" content="#005 | What are Fluent Validation and how to use them" />
-<meta property="og:description" content="Why would anyone use Fluent Validations?Consider the following Employee class:
-class Employee { public int Id { get; set; } public string Name { get; set; } public DateTime DateOfBirth {get; set; } } When we use fluent validation, we are not forced to separate our validation logic into another class, but it enables us to do so. For example, an app might have a general validation for any given employee, but the Finance module has more rules for the same class." />
+  <meta property="og:title" content="#001 | Async is not about Performance" />
+<meta property="og:description" content="ContextBefore we delve deeper, we need to know that:
+Task is the promise of a future value. Async is not the same thing as parallelism (multi-thread). Methods can be CPU-bound or IO-bound. CPU-bound relies on the CPU, while IO-bound refers to disks or network. Whenever the compiler finds the keyword, await a state machine is created to store the state of the context. What happens behind the scenesWhen we wait for a method with the keyword await we signal to the runtime that, if the thread that is waiting for the result of the asynchronous operation, it can return to the thread pool and execute other tasks." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://devicode.io/posts/005-what-are-fluent-assertions-how-to-use-them/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2023-02-13T03:32:12+00:00" />
-<meta property="article:modified_time" content="2023-02-13T03:32:12+00:00" />
+<meta property="og:url" content="https://devicode.io/posts/001-async-is-not-about-performance/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-01-16T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-01-16T00:00:00+00:00" />
 
   <link rel="stylesheet" href="/css/bootstrap.min.css"  crossorigin="anonymous">
   
@@ -186,18 +186,18 @@ if (!doNotTrack) {
                     <div class="post-heading">
                         <div class="tags">
                             
-                            <a class="tag" href="/tags/fluent-validation/" title="Fluent validation">Fluent validation</a>
-                            
                             <a class="tag" href="/tags/csharp/" title="csharp">csharp</a>
+                            
+                            <a class="tag" href="/tags/async/" title="async">async</a>
                             
                             <a class="tag" href="/tags/dotnet/" title="dotnet">dotnet</a>
                             
                         </div>
-                        <h1>#005 | What are Fluent Validation and how to use them</h1>
-                        <h2 class="subheading">Usually attributes are used to decouple validation from the model, but there is a better way.</h2>
+                        <h1>#001 | Async is not about Performance</h1>
+                        <h2 class="subheading">When we think of asynchronous code, performance gains immediately come to mind, but this is not exactly the case.</h2>
                         <span class="meta">
                             Posted by  Jefferson Rocha 
-                            on Mon, Feb 13, 2023
+                            on Mon, Jan 16, 2023
                         </span>
                     </div>
                 </div>
@@ -219,73 +219,51 @@ if (!doNotTrack) {
               col-lg-8 col-lg-offset-2
               col-md-10 col-md-offset-1
               post-container">
-        <h1 id="why-would-anyone-use-fluent-validations">Why would anyone use Fluent Validations?<a class="anchorjs-link" href="#why-would-anyone-use-fluent-validations"></a></h1><p>Consider the following <code>Employee</code> class:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Employee</span>
+        <h2 id="context">Context<a class="anchorjs-link" href="#context"></a></h2><p>Before we delve deeper, we need to know that:</p>
+<ol>
+<li>Task is the promise of a future value.</li>
+<li>Async is not the same thing as parallelism (multi-thread).</li>
+<li>Methods can be CPU-bound or IO-bound. CPU-bound relies on the CPU, while IO-bound refers to disks or network.</li>
+<li>Whenever the compiler finds the keyword, <code>await</code> a state machine is created to store the state of the context.</li>
+</ol>
+<h2 id="what-happens-behind-the-scenes">What happens behind the scenes<a class="anchorjs-link" href="#what-happens-behind-the-scenes"></a></h2><p>When we wait for a method with the keyword <code>await</code> we signal to the runtime that, if the thread that is waiting for the result of the asynchronous operation, it can return to the thread pool and execute other tasks.</p>
+<p>However, if the method being executed is CPU-bound, the thread that waited for the method will continue to be busy with its execution. In this case, the result is the same as executing the method synchronously, but with the overhead of creating the state machine.</p>
+<p>The benefit of async methods comes when we have IO-bound tasks. This means that processor-independent tasks like HTTP calls or reading a file from disk can be scheduled for some time in the future, and in the meantime the thread waiting for this method returns to the thread pool and can handle new requests. requests.</p>
+<h2 id="the-scalability-aspect">The scalability aspect<a class="anchorjs-link" href="#the-scalability-aspect"></a></h2><p>Considering a web applicaion, leveraging <code>async</code>/<code>await</code> does not mean that the application code will run faster, but that it can handle more requests at the same time if we make available the threads that are waiting for other resources besides the CPU.</p>
+<h2 id="what-to-keep-in-mind-when-using-asyncawait">What to keep in mind when using async/await<a class="anchorjs-link" href="#what-to-keep-in-mind-when-using-asyncawait"></a></h2><h3 id="do-not-access-the-result-directly">Do not access the result directly:<a class="anchorjs-link" href="#do-not-access-the-result-directly"></a></h3><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> AddOneAsync()
 </span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> Id { <span style="color:#66d9ef">get</span>; <span style="color:#66d9ef">set</span>; }
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">string</span> Name { <span style="color:#66d9ef">get</span>; <span style="color:#66d9ef">set</span>; }
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> DateTime DateOfBirth {<span style="color:#66d9ef">get</span>; <span style="color:#66d9ef">set</span>; }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> result = GetValueAsync().Result;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> result + <span style="color:#ae81ff">1</span>;
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>When we use fluent validation, we are not forced to separate our validation logic into another class, but it enables us to do so.
-For example, an app might have a general validation for any given employee, but the Finance module has more rules for the same class.</p>
-<h2 id="where-does-one-get-started">Where does one get started?<a class="anchorjs-link" href="#where-does-one-get-started"></a></h2><p>Run the following to install the FluentValidation package into the project:</p>
-<pre tabindex="0"><code>Install-Package FluentValidation
-</code></pre><p>Now we&rsquo;re good to go.</p>
-<h2 id="creating-the-model-to-validate">Creating the model to validate<a class="anchorjs-link" href="#creating-the-model-to-validate"></a></h2><p>Let&rsquo;s define the general validation for the general employee.
-The general <code>Employee</code> validator checks if the <code>Id</code> property is not empty:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">GeneralEmployeeValidator</span> : AbstractValidator&lt;Employee&gt;
+</span></span></code></pre></div><p>Always use <code>await</code> to get the result:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> AddOneAsync()
 </span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> GeneralEmployeeValidator()
-</span></span><span style="display:flex;"><span>    {
-</span></span><span style="display:flex;"><span>        RuleFor(x =&gt; x.Id).NotEmpty();
-</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> result = <span style="color:#66d9ef">await</span> GetValueAsync();
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> result + <span style="color:#ae81ff">1</span>;
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h2 id="the-default-validator">The default validator<a class="anchorjs-link" href="#the-default-validator"></a></h2><p>And then the more specific <code>Finance</code> validator can build on top of it by inherting <code>GeneralEmployeeValidator</code> and calling <code>:base()</code>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">FinanceEmployeeValidator</span> : GeneralEmployeeValidator
+</span></span></code></pre></div><p>This prevents the current thread from blocking and avoids possible deadlocks.</p>
+<hr>
+<h3 id="be-deliberate-in-choosing-whether-to-use-await-or-return-the-task">Be deliberate in choosing whether to use <code>await</code> or return the <code>Task</code>.<a class="anchorjs-link" href="#be-deliberate-in-choosing-whether-to-use-await-or-return-the-task"></a></h3><p>Seeking to improve performance we might convert our methods that just wait for another method:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#960050;background-color:#1e0010">`</span><span style="color:#66d9ef">async</span><span style="color:#960050;background-color:#1e0010">`</span> Task&lt;<span style="color:#66d9ef">string</span>&gt; GetStringAsyncWrapperAsync(<span style="color:#66d9ef">string</span> uri)
 </span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> FinanceEmployeeValidator() : <span style="color:#66d9ef">base</span>()
-</span></span><span style="display:flex;"><span>    {
-</span></span><span style="display:flex;"><span>        RuleFor(x =&gt; x.Name).NotEmpty();
-</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#960050;background-color:#1e0010">`</span><span style="color:#66d9ef">await</span><span style="color:#960050;background-color:#1e0010">`</span> _htttClient.GetStringAsync(uri);
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h2 id="the-finance-validator">The Finance validator<a class="anchorjs-link" href="#the-finance-validator"></a></h2><p>With this approach we clearly separate the declarion of the domain (<code>Employee</code>) and the validation logic for it (both <code>GeneralEmployeeValidator</code> and <code>FinanceEmployeeValidator</code>).
-Of course there&rsquo;s nothing stopping us from creating a whole new validator. If we want we could an exclusive validator for the <code>DateOfBirth</code>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">DateOfBirthEmployeeValidator</span> : AbstractValidator&lt;Employee&gt;
+</span></span></code></pre></div><p>Into one that simply returns the <code>Task</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> Task&lt;<span style="color:#66d9ef">string</span>&gt; GetAsyncWrapper(<span style="color:#66d9ef">string</span> uri)
 </span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> DateOfBirthEmployeeValidator()
-</span></span><span style="display:flex;"><span>    {
-</span></span><span style="display:flex;"><span>        RuleFor(x =&gt; x.DateOfBirth).NotEmpty();
-</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> _htttClient.GetAsync(uri);
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h2 id="composing-a-validation-chain">Composing a validation chain<a class="anchorjs-link" href="#composing-a-validation-chain"></a></h2><p>And then we can chain then fogether:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span>    <span style="color:#75715e">// Creating the Employee</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> employee = <span style="color:#66d9ef">new</span> Employee() { <span style="color:#75715e">/* ... */</span>};
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Creating the validator</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> financeValidator = <span style="color:#66d9ef">new</span> FinanceEmployeeValidator();
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> dateOfBirthValidator = <span style="color:#66d9ef">new</span> DateOfBirthEmployeeValidator();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Validating the Employee using both validators</span>
-</span></span><span style="display:flex;"><span>    financeValidator.ValidateAndThrow(employee);
-</span></span><span style="display:flex;"><span>    dateOfBirthValidator.ValidateAndThrow(employee);
-</span></span></code></pre></div><h1 id="tldr">TL;DR<a class="anchorjs-link" href="#tldr"></a></h1><p>Using <code>FluentValidation</code> enables the separation of the declaration of the model (<code>Employee</code>) and the validation logic, supporting multiple validations for the same model.</p>
+</span></span></code></pre></div><p>This provides the benefit of not having to allocate a new state machine (which is marginally faster and uses less memory), with the drawback that if an exception occurs within any <code>Task</code> being returned the stacktrace points to the <code>Task</code> first method you didn&rsquo;t use await.</p>
 
 
         <hr style="visibility: hidden;" />
         <ul class="pager">
           
-          <li class="previous">
-            <a href="/posts/004-the-different-types-of-delegate-csharp/" data-toggle="tooltip" data-placement="top" title="#004 | Different types of delegates in C#">
-              Previous<br>
-              <span>#004 | Different types of delegates in C#</span>
-            </a>
-          </li>
-          
           
           <li class="next">
-            <a href="/posts/006-the-problem-with-ilogger/" data-toggle="tooltip" data-placement="top" title="#006 | The problem with ILogger">
+            <a href="/posts/002-the-5-solid-principles/" data-toggle="tooltip" data-placement="top" title="#002 | The 5 SOLID principles">
               Next<br>
-              <span>#006 | The problem with ILogger</span>
+              <span>#002 | The 5 SOLID principles</span>
             </a>
           </li>
           

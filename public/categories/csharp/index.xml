@@ -27,5 +27,15 @@ using System; using System.Collections.Generic;	public class Program { public st
 Em primeiro lugar, podemos ver que ambos vivem em namespaces totalmente diferentes:</description>
     </item>
     
+    <item>
+      <title>#001 | Async is not about Performance</title>
+      <link>https://devicode.io/posts/001-async-is-not-about-performance/</link>
+      <pubDate>Mon, 16 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://devicode.io/posts/001-async-is-not-about-performance/</guid>
+      <description>ContextBefore we delve deeper, we need to know that:
+Task is the promise of a future value. Async is not the same thing as parallelism (multi-thread). Methods can be CPU-bound or IO-bound. CPU-bound relies on the CPU, while IO-bound refers to disks or network. Whenever the compiler finds the keyword, await a state machine is created to store the state of the context. What happens behind the scenesWhen we wait for a method with the keyword await we signal to the runtime that, if the thread that is waiting for the result of the asynchronous operation, it can return to the thread pool and execute other tasks.</description>
+    </item>
+    
   </channel>
 </rss>

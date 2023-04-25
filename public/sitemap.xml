@@ -88,5 +88,17 @@
   </url><url>
     <loc>https://devicode.io/tags/solid/</loc>
     <lastmod>2023-01-23T08:33:15+00:00</lastmod>
+  </url><url>
+    <loc>https://devicode.io/posts/001-async-is-not-about-performance/</loc>
+    <lastmod>2023-01-16T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://devicode.io/tags/async/</loc>
+    <lastmod>2023-01-16T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://devicode.io/categories/async/</loc>
+    <lastmod>2023-01-16T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://devicode.io/categories/dotnet/</loc>
+    <lastmod>2023-01-16T00:00:00+00:00</lastmod>
   </url>
 </urlset>

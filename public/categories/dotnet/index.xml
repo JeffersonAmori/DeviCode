@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>dotnet on DeviCode</title>
+    <link>https://devicode.io/categories/dotnet/</link>
+    <description>Recent content in dotnet on DeviCode</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 16 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://devicode.io/categories/dotnet/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>#001 | Async is not about Performance</title>
+      <link>https://devicode.io/posts/001-async-is-not-about-performance/</link>
+      <pubDate>Mon, 16 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://devicode.io/posts/001-async-is-not-about-performance/</guid>
+      <description>ContextBefore we delve deeper, we need to know that:
+Task is the promise of a future value. Async is not the same thing as parallelism (multi-thread). Methods can be CPU-bound or IO-bound. CPU-bound relies on the CPU, while IO-bound refers to disks or network. Whenever the compiler finds the keyword, await a state machine is created to store the state of the context. What happens behind the scenesWhen we wait for a method with the keyword await we signal to the runtime that, if the thread that is waiting for the result of the asynchronous operation, it can return to the thread pool and execute other tasks.</description>
+    </item>
+    
+  </channel>
+</rss>

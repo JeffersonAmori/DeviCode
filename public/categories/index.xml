@@ -52,5 +52,23 @@
       <description></description>
     </item>
     
+    <item>
+      <title>async</title>
+      <link>https://devicode.io/categories/async/</link>
+      <pubDate>Mon, 16 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://devicode.io/categories/async/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>dotnet</title>
+      <link>https://devicode.io/categories/dotnet/</link>
+      <pubDate>Mon, 16 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://devicode.io/categories/dotnet/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>
