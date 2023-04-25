@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>LINQ on DeviCode</title>
+    <link>https://devicode.io/categories/linq/</link>
+    <description>Recent content in LINQ on DeviCode</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 30 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://devicode.io/categories/linq/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Generator-Function in C# - como o yield funciona?</title>
+      <link>https://devicode.io/pt-br/linq-com-desenhos-generator-functions-como-funciona-o-yield/</link>
+      <pubDate>Mon, 30 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://devicode.io/pt-br/linq-com-desenhos-generator-functions-como-funciona-o-yield/</guid>
+      <description>Vamos ver um pequeno exemplo para examinar o comportamento. Criamos uma pequena aplicação de console que tem um &amp;ldquo;gerador de string&amp;rdquo;. Implementaremos o gerador com a palavra-chave yield. Isso significa que estamos obtendo nossas strings &amp;ldquo;uma por vez&amp;rdquo; e não todo o conteúdo de uma só vez. Para tornar as coisas mais interessantes, saímos do loop quando recebemos dois elementos do gerador.
+using System; using System.Collections.Generic;	public class Program { public static void Main() { var loopCounter = 0; Console.</description>
+    </item>
+    
+    <item>
+      <title>IEnumerable vs IQueryable - Qual a diferença?</title>
+      <link>https://devicode.io/pt-br/linq-com-desenhos-ienumerable-vs-iqueryable-qual-a-diferenca/</link>
+      <pubDate>Mon, 30 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://devicode.io/pt-br/linq-com-desenhos-ienumerable-vs-iqueryable-qual-a-diferenca/</guid>
+      <description>Vamos começar devagar: IQueryable estende IEnumerable. O que isso significa? Bem, o que quer que você queira fazer com IEnumerable, você também pode fazer com IQueryable. Portanto, deve haver algumas diferenças conceituais entre os dois. Pequeno aviso: quando falo de IEnumerable ou IQueryable, refiro-me à variação genérica. Porém a maioria do que é dito aqui também se aplica à versão não genérica que foi usada antes do .NET 2.
+Em primeiro lugar, podemos ver que ambos vivem em namespaces totalmente diferentes:</description>
+    </item>
+    
+  </channel>
+</rss>

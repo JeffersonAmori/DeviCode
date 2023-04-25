@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  
+    
+  <title>#005 | What are Fluent Validation and how to use them | DeviCode</title><meta name="description" content="Why would anyone use Fluent Validations?Consider the following Employee class:
+class Employee { public int Id { get; set; } public string Name { get; set; } public DateTime DateOfBirth {get; set; } } When we use fluent validation, we are not forced to separate our validation logic into another class, but it enables us to do so. For example, an app might have a general validation for any given employee, but the Finance module has more rules for the same class.">
+  <meta name="keywords" content="">
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="#005 | What are Fluent Validation and how to use them"/>
+<meta name="twitter:description" content="Why would anyone use Fluent Validations?Consider the following Employee class:
+class Employee { public int Id { get; set; } public string Name { get; set; } public DateTime DateOfBirth {get; set; } } When we use fluent validation, we are not forced to separate our validation logic into another class, but it enables us to do so. For example, an app might have a general validation for any given employee, but the Finance module has more rules for the same class."/>
+
+  <meta property="og:title" content="#005 | What are Fluent Validation and how to use them" />
+<meta property="og:description" content="Why would anyone use Fluent Validations?Consider the following Employee class:
+class Employee { public int Id { get; set; } public string Name { get; set; } public DateTime DateOfBirth {get; set; } } When we use fluent validation, we are not forced to separate our validation logic into another class, but it enables us to do so. For example, an app might have a general validation for any given employee, but the Finance module has more rules for the same class." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://devicode.io/posts/005-what-are-fluent-assertions-how-to-use-them/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-02-13T03:32:12+00:00" />
+<meta property="article:modified_time" content="2023-02-13T03:32:12+00:00" />
+
+  <link rel="stylesheet" href="/css/bootstrap.min.css"  crossorigin="anonymous">
+  
+  <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/all.min.css" rel="stylesheet" type="text/css">
+
+  <link rel="stylesheet" href="/sass/main.css">
+
+  <link rel="stylesheet" href="/zoomjs/zoom.min.css">
+
+  <script src=/js/lazysizes.min.js></script>
+
+  
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="shortcut icon" href="/favicon.png" type="image/x-icon">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/logo.svg" sizes="any" type="image/svg+xml" />
+
+
+</head>
+
+
+
+<body ontouchstart="">
+  
+  
+  <nav class="navbar navbar-default navbar-custom navbar-fixed-top invert">
+  <div class="container-fluid">
+    
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://devicode.io">DeviCode</a>
+    </div>
+    
+    <div id="huxblog_navbar">
+      <div class="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          
+
+          <li class="search-icon">
+            <a href="javascript:void(0)">
+              <i class="fa fa-search"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+  </div>
+  
+</nav>
+<script>
+  
+  
+  
+  var $body = document.body;
+  var $toggle = document.querySelector(".navbar-toggle");
+  var $navbar = document.querySelector("#huxblog_navbar");
+  var $collapse = document.querySelector(".navbar-collapse");
+
+  var __HuxNav__ = {
+    close: function () {
+      $navbar.className = " ";
+      
+      setTimeout(function () {
+        
+        if ($navbar.className.indexOf("in") < 0) {
+          $collapse.style.height = "0px";
+        }
+      }, 400);
+    },
+    open: function () {
+      $collapse.style.height = "auto";
+      $navbar.className += " in";
+    },
+  };
+
+  
+  $toggle.addEventListener("click", function (e) {
+    if ($navbar.className.indexOf("in") > 0) {
+      __HuxNav__.close();
+    } else {
+      __HuxNav__.open();
+    }
+  });
+
+  
+
+  document.addEventListener("click", function (e) {
+    if (e.target == $toggle) return;
+    if (e.target.className == "icon-bar") return;
+    __HuxNav__.close();
+  });
+</script>
+  
+<div class="search-page">
+  <div class="search-icon-close-container">
+    <span class="search-icon-close">
+      <i class="fa fa-chevron-down"></i>
+    </span>
+  </div>
+  <div class="search-main container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <form></form>
+        <input type="text" id="search-input" placeholder="$ grep...">
+        </form>
+        <div id="search-results" class="mini-post-list"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+  
+
+
+<style type="text/css">
+  header.intro-header {
+    position: relative;
+    background-image: url('');
+  }
+</style>
+
+    <header class="intro-header style-text">
+        
+
+        
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-65SCCZ7Y92"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-65SCCZ7Y92', { 'anonymize_ip': false });
+}
+</script>
+
+        
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'G-65SCCZ7Y92', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+        <div class="header-mask"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="post-heading">
+                        <div class="tags">
+                            
+                            <a class="tag" href="/tags/fluent-validation/" title="Fluent validation">Fluent validation</a>
+                            
+                            <a class="tag" href="/tags/csharp/" title="csharp">csharp</a>
+                            
+                            <a class="tag" href="/tags/dotnet/" title="dotnet">dotnet</a>
+                            
+                        </div>
+                        <h1>#005 | What are Fluent Validation and how to use them</h1>
+                        <h2 class="subheading">Usually attributes are used to decouple validation from the model, but there is a better way.</h2>
+                        <span class="meta">
+                            Posted by  Jefferson Rocha 
+                            on Mon, Feb 13, 2023
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+
+
+  
+
+
+<article>
+  <div class="container">
+    <div class="row">
+
+      
+      <div class="
+              col-lg-8 col-lg-offset-2
+              col-md-10 col-md-offset-1
+              post-container">
+        <h1 id="why-would-anyone-use-fluent-validations">Why would anyone use Fluent Validations?<a class="anchorjs-link" href="#why-would-anyone-use-fluent-validations"></a></h1><p>Consider the following <code>Employee</code> class:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Employee</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> Id { <span style="color:#66d9ef">get</span>; <span style="color:#66d9ef">set</span>; }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">string</span> Name { <span style="color:#66d9ef">get</span>; <span style="color:#66d9ef">set</span>; }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> DateTime DateOfBirth {<span style="color:#66d9ef">get</span>; <span style="color:#66d9ef">set</span>; }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>When we use fluent validation, we are not forced to separate our validation logic into another class, but it enables us to do so.
+For example, an app might have a general validation for any given employee, but the Finance module has more rules for the same class.</p>
+<h2 id="where-does-one-get-started">Where does one get started?<a class="anchorjs-link" href="#where-does-one-get-started"></a></h2><p>Run the following to install the FluentValidation package into the project:</p>
+<pre tabindex="0"><code>Install-Package FluentValidation
+</code></pre><p>Now we&rsquo;re good to go.</p>
+<h2 id="creating-the-model-to-validate">Creating the model to validate<a class="anchorjs-link" href="#creating-the-model-to-validate"></a></h2><p>Let&rsquo;s define the general validation for the general employee.
+The general <code>Employee</code> validator checks if the <code>Id</code> property is not empty:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">GeneralEmployeeValidator</span> : AbstractValidator&lt;Employee&gt;
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> GeneralEmployeeValidator()
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        RuleFor(x =&gt; x.Id).NotEmpty();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="the-default-validator">The default validator<a class="anchorjs-link" href="#the-default-validator"></a></h2><p>And then the more specific <code>Finance</code> validator can build on top of it by inherting <code>GeneralEmployeeValidator</code> and calling <code>:base()</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">FinanceEmployeeValidator</span> : GeneralEmployeeValidator
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> FinanceEmployeeValidator() : <span style="color:#66d9ef">base</span>()
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        RuleFor(x =&gt; x.Name).NotEmpty();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="the-finance-validator">The Finance validator<a class="anchorjs-link" href="#the-finance-validator"></a></h2><p>With this approach we clearly separate the declarion of the domain (<code>Employee</code>) and the validation logic for it (both <code>GeneralEmployeeValidator</code> and <code>FinanceEmployeeValidator</code>).
+Of course there&rsquo;s nothing stopping us from creating a whole new validator. If we want we could an exclusive validator for the <code>DateOfBirth</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">DateOfBirthEmployeeValidator</span> : AbstractValidator&lt;Employee&gt;
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> DateOfBirthEmployeeValidator()
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        RuleFor(x =&gt; x.DateOfBirth).NotEmpty();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="composing-a-validation-chain">Composing a validation chain<a class="anchorjs-link" href="#composing-a-validation-chain"></a></h2><p>And then we can chain then fogether:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span>    <span style="color:#75715e">// Creating the Employee</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> employee = <span style="color:#66d9ef">new</span> Employee() { <span style="color:#75715e">/* ... */</span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Creating the validator</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> financeValidator = <span style="color:#66d9ef">new</span> FinanceEmployeeValidator();
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> dateOfBirthValidator = <span style="color:#66d9ef">new</span> DateOfBirthEmployeeValidator();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Validating the Employee using both validators</span>
+</span></span><span style="display:flex;"><span>    financeValidator.ValidateAndThrow(employee);
+</span></span><span style="display:flex;"><span>    dateOfBirthValidator.ValidateAndThrow(employee);
+</span></span></code></pre></div><h1 id="tldr">TL;DR<a class="anchorjs-link" href="#tldr"></a></h1><p>Using <code>FluentValidation</code> enables the separation of the declaration of the model (<code>Employee</code>) and the validation logic, supporting multiple validations for the same model.</p>
+
+
+        <hr style="visibility: hidden;" />
+        <ul class="pager">
+          
+          <li class="previous">
+            <a href="/posts/004-the-different-types-of-delegate-csharp/" data-toggle="tooltip" data-placement="top" title="#004 | Different types of delegates in C#">
+              Previous<br>
+              <span>#004 | Different types of delegates in C#</span>
+            </a>
+          </li>
+          
+          
+          <li class="next">
+            <a href="/posts/006-the-problem-with-ilogger/" data-toggle="tooltip" data-placement="top" title="#006 | The problem with ILogger">
+              Next<br>
+              <span>#006 | The problem with ILogger</span>
+            </a>
+          </li>
+          
+        </ul>
+        <hr style="visibility: hidden;" />
+
+        
+        
+
+
+
+    <div class="giscus" id="comments"></div>
+    <script src="https://giscus.app/client.js"
+            data-repo="JeffersonAmori/DeviCode"
+            data-repo-id="R_kgDOIz_rQw"
+            data-category="Announcements"
+            data-category-id="DIC_kwDOIz_rQ84CTtV0"
+            data-mapping="og:title"
+            data-strict="0"
+            data-reactions-enabled="1"
+            data-emit-metadata="0"
+            data-input-position="top"
+            data-theme="light"
+            data-lang="pt"
+            crossorigin="anonymous">
+    </script>
+
+
+
+
+      </div>
+
+      
+      
+      
+      <div class="
+              col-lg-2 col-lg-offset-0
+              visible-lg-block
+              sidebar-container
+              catalog-container">
+        <div class="side-catalog">
+          <hr class="hidden-sm hidden-xs">
+          <h5>
+            <a class="catalog-toggle" href="#">CATALOG</a>
+          </h5>
+          <ul class="catalog-body"></ul>
+        </div>
+      </div>
+      
+      
+      <div class="
+              col-lg-8 col-lg-offset-2
+              col-md-10 col-md-offset-1
+              sidebar-container">
+
+        
+        
+        <section>
+  
+  
+  <hr class="hidden-sm hidden-xs">
+  
+  <h5>FEATURED TAGS</h5>
+  <div class="tags">
+    
+    <a href="/tags/csharp/">csharp</a>
+    
+    <a href="/tags/dotnet/">dotnet</a>
+    
+    <a href="/tags/fluent-validation/">Fluent validation</a>
+    
+    <a href="/tags/ienumerable/">IEnumerable</a>
+    
+    <a href="/tags/iqueryable/">IQueryable</a>
+    
+    <a href="/tags/linq/">LINQ</a>
+    
+    <a href="/tags/memory-management/">memory management</a>
+    
+    <a href="/tags/oo/">OO</a>
+    
+    <a href="/tags/software-enginnering/">software enginnering</a>
+    
+    <a href="/tags/solid/">SOLID</a>
+    
+    <a href="/tags/yield/">yield</a>
+    
+  </div>
+</section>
+
+        
+        
+
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+  
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+                <ul class="list-inline text-center"></ul>
+
+                <p class="copyright text-muted">
+                    Copyright &copy; DeviCode 2023
+                    <br>
+                    Powered by <a href="https://gohugo.io">Hugo</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src=/js/jquery.min.js></script>
+<script src=/js/bootstrap.min.js crossorigin="anonymous"></script>
+
+
+
+<script src="/js/hux-blog.min.73a6a8d8df45293e042d15867416f603045bbeb98406731e5022d6c60388cd9d.js"></script>
+
+
+<script src=/js/simple-jekyll-search.min.js></script>
+
+
+<script src="/js/search.min.53bce5da475b4d362500e5ce5dddfa22e20e1b9018777411d2020b4b839c9310.js"></script>
+
+
+
+
+
+
+<script type="text/javascript">
+  function generateCatalog(selector) {
+    _containerSelector = 'div.post-container'
+    
+    var P = $(_containerSelector), a, n, t, l, i, c;
+    a = P.find('h1,h2,h3,h4');
+    
+    $(selector).html('')
+    
+    a.each(function () {
+      n = $(this).prop('tagName').toLowerCase();
+      i = "#" + $(this).prop('id');
+      t = $(this).text();
+      c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+      l = $('<li class="' + n + '_nav"></li>').append(c);
+      $(selector).append(l);
+    });
+    return true;
+  }
+
+  generateCatalog(".catalog-body");
+
+  
+  $(".catalog-toggle").click((function (e) {
+    e.preventDefault();
+    $('.side-catalog').toggleClass("fold")
+  }))
+</script>
+
+
+<script type="text/javascript" src='/js/jquery.nav.min.ade6bde8f9fcc6a4b40852cb892e9f5912340ab8fe1305149d917fdd16fffd8d.js'></script>
+<script>
+   $(document).ready( function () {
+    $('.catalog-body').onePageNav({
+      currentClass: "active",
+      changeHash: !1,
+      easing: "swing",
+      filter: "",
+      scrollSpeed: 700,
+      scrollOffset: 0,
+      scrollThreshold: .2,
+      begin: null,
+      end: null,
+      scrollChange: null,
+      padding: 80
+    });
+  });
+</script>
+
+
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-65SCCZ7Y92"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-65SCCZ7Y92', { 'anonymize_ip': false });
+}
+</script>
+
+
+
+
+<script src="/zoomjs/zoom.min.js"></script>
+
+</body>
+
+</html>

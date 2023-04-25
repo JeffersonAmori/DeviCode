@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  
+    
+  <title>#002 | The 5 SOLID principles | DeviCode</title><meta name="description" content="S.O.L.I.D.The 5 principles of SOLID are:
+S - Single Responsibility - Single Responsibility
+O - Open/Closed Principle - Open/Closed Principle
+L - Liskov Substitution Principle - Liskov Substitution Principle
+I - Interface Segregation - Segregation of interfaces
+D - Depencency Injection - Dependency Injection
+1 | Single ResponsabilityThe principle of single responsibility determines that each member of the system has only one responsibility. Methods must have a single and clear function - it is a bad sign if you have to use the conjunction And in the method&rsquo;s name.">
+  <meta name="keywords" content="">
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="#002 | The 5 SOLID principles"/>
+<meta name="twitter:description" content="S.O.L.I.D.The 5 principles of SOLID are:
+S - Single Responsibility - Single Responsibility
+O - Open/Closed Principle - Open/Closed Principle
+L - Liskov Substitution Principle - Liskov Substitution Principle
+I - Interface Segregation - Segregation of interfaces
+D - Depencency Injection - Dependency Injection
+1 | Single ResponsabilityThe principle of single responsibility determines that each member of the system has only one responsibility. Methods must have a single and clear function - it is a bad sign if you have to use the conjunction And in the method&rsquo;s name."/>
+
+  <meta property="og:title" content="#002 | The 5 SOLID principles" />
+<meta property="og:description" content="S.O.L.I.D.The 5 principles of SOLID are:
+S - Single Responsibility - Single Responsibility
+O - Open/Closed Principle - Open/Closed Principle
+L - Liskov Substitution Principle - Liskov Substitution Principle
+I - Interface Segregation - Segregation of interfaces
+D - Depencency Injection - Dependency Injection
+1 | Single ResponsabilityThe principle of single responsibility determines that each member of the system has only one responsibility. Methods must have a single and clear function - it is a bad sign if you have to use the conjunction And in the method&rsquo;s name." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://devicode.io/posts/002-the-5-solid-principles/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-01-23T08:33:15+00:00" />
+<meta property="article:modified_time" content="2023-01-23T08:33:15+00:00" />
+
+  <link rel="stylesheet" href="/css/bootstrap.min.css"  crossorigin="anonymous">
+  
+  <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/all.min.css" rel="stylesheet" type="text/css">
+
+  <link rel="stylesheet" href="/sass/main.css">
+
+  <link rel="stylesheet" href="/zoomjs/zoom.min.css">
+
+  <script src=/js/lazysizes.min.js></script>
+
+  
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="shortcut icon" href="/favicon.png" type="image/x-icon">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/logo.svg" sizes="any" type="image/svg+xml" />
+
+
+</head>
+
+
+
+<body ontouchstart="">
+  
+  
+  <nav class="navbar navbar-default navbar-custom navbar-fixed-top invert">
+  <div class="container-fluid">
+    
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://devicode.io">DeviCode</a>
+    </div>
+    
+    <div id="huxblog_navbar">
+      <div class="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          
+
+          <li class="search-icon">
+            <a href="javascript:void(0)">
+              <i class="fa fa-search"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+  </div>
+  
+</nav>
+<script>
+  
+  
+  
+  var $body = document.body;
+  var $toggle = document.querySelector(".navbar-toggle");
+  var $navbar = document.querySelector("#huxblog_navbar");
+  var $collapse = document.querySelector(".navbar-collapse");
+
+  var __HuxNav__ = {
+    close: function () {
+      $navbar.className = " ";
+      
+      setTimeout(function () {
+        
+        if ($navbar.className.indexOf("in") < 0) {
+          $collapse.style.height = "0px";
+        }
+      }, 400);
+    },
+    open: function () {
+      $collapse.style.height = "auto";
+      $navbar.className += " in";
+    },
+  };
+
+  
+  $toggle.addEventListener("click", function (e) {
+    if ($navbar.className.indexOf("in") > 0) {
+      __HuxNav__.close();
+    } else {
+      __HuxNav__.open();
+    }
+  });
+
+  
+
+  document.addEventListener("click", function (e) {
+    if (e.target == $toggle) return;
+    if (e.target.className == "icon-bar") return;
+    __HuxNav__.close();
+  });
+</script>
+  
+<div class="search-page">
+  <div class="search-icon-close-container">
+    <span class="search-icon-close">
+      <i class="fa fa-chevron-down"></i>
+    </span>
+  </div>
+  <div class="search-main container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <form></form>
+        <input type="text" id="search-input" placeholder="$ grep...">
+        </form>
+        <div id="search-results" class="mini-post-list"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+  
+
+
+<style type="text/css">
+  header.intro-header {
+    position: relative;
+    background-image: url('');
+  }
+</style>
+
+    <header class="intro-header style-text">
+        
+
+        
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-65SCCZ7Y92"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-65SCCZ7Y92', { 'anonymize_ip': false });
+}
+</script>
+
+        
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'G-65SCCZ7Y92', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+        <div class="header-mask"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="post-heading">
+                        <div class="tags">
+                            
+                            <a class="tag" href="/tags/oo/" title="OO">OO</a>
+                            
+                            <a class="tag" href="/tags/solid/" title="SOLID">SOLID</a>
+                            
+                            <a class="tag" href="/tags/software-enginnering/" title="software enginnering">software enginnering</a>
+                            
+                        </div>
+                        <h1>#002 | The 5 SOLID principles</h1>
+                        <h2 class="subheading">The SOLID principles define a set of best practices for developing high-quality code.</h2>
+                        <span class="meta">
+                            Posted by  Jefferson Rocha 
+                            on Mon, Jan 23, 2023
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+
+
+  
+
+
+<article>
+  <div class="container">
+    <div class="row">
+
+      
+      <div class="
+              col-lg-8 col-lg-offset-2
+              col-md-10 col-md-offset-1
+              post-container">
+        <h1 id="solid">S.O.L.I.D.<a class="anchorjs-link" href="#solid"></a></h1><p>The 5 principles of SOLID are:</p>
+<p><strong>S</strong> - Single Responsibility - Single Responsibility</p>
+<p><strong>O</strong> - Open/Closed Principle - Open/Closed Principle</p>
+<p><strong>L</strong> - Liskov Substitution Principle - Liskov Substitution Principle</p>
+<p><strong>I</strong> - Interface Segregation - Segregation of interfaces</p>
+<p><strong>D</strong> - Depencency Injection - Dependency Injection</p>
+<h2 id="1--single-responsability">1 | Single Responsability<a class="anchorjs-link" href="#1--single-responsability"></a></h2><p>The principle of single responsibility determines that each member of the system has only one responsibility.
+Methods must have a single and clear function - it is a bad sign if you have to use the conjunction <em>And</em> in the method&rsquo;s name.
+Having no side effects on the system outside the scope of its excution is a plus.</p>
+<p>❌ Don&rsquo;t</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#66d9ef">double</span> SumThenMultiply(<span style="color:#66d9ef">double</span> firstNumber, <span style="color:#66d9ef">double</span> secondNumber, <span style="color:#66d9ef">double</span> multiplyBy)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> (firstNumber + secondNumber) * multiplyBy;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>✔️ Do</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#66d9ef">double</span> Sum(<span style="color:#66d9ef">double</span> firstNumber, <span style="color:#66d9ef">double</span> secondNumber)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> firstNumber + secondNumber;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">double</span> Multiply(<span style="color:#66d9ef">double</span> firstNumber, <span style="color:#66d9ef">double</span> secondNumber)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> firstNumber * secondNumber;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="2--openclosed-principle">2 | Open/Closed Principle<a class="anchorjs-link" href="#2--openclosed-principle"></a></h2><p>The <em>Open/Closed Principle</em> states that implementations should be <em>open</em> to extension while being <em>closed</em> to <em>changes</em>.</p>
+<p>❌ Don&rsquo;t</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#66d9ef">enum</span> ValidVideoFileExtension
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	Mp4 = <span style="color:#ae81ff">0</span>,
+</span></span><span style="display:flex;"><span>	Avi,
+</span></span><span style="display:flex;"><span>	Mkv
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> ProcessVideoFiles(IEnumerable&lt;FileInfo&gt; files)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">foreach</span>(<span style="color:#66d9ef">var</span> file <span style="color:#66d9ef">in</span> files)
+</span></span><span style="display:flex;"><span>	{
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">if</span>(file.Type == ValidVideoFileExtension.Mp4 || 
+</span></span><span style="display:flex;"><span>		   file.Type == ValidVideoFileExtension.Avi || 
+</span></span><span style="display:flex;"><span>		   file.Type == ValidVideoFileExtension.Mkv)
+</span></span><span style="display:flex;"><span>		{
+</span></span><span style="display:flex;"><span>			<span style="color:#75715e">// Process the video file.</span>
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>✔️ Do</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#66d9ef">enum</span> ValidVideoFileExtension
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	Mp4 = <span style="color:#ae81ff">0</span>,
+</span></span><span style="display:flex;"><span>	Avi,
+</span></span><span style="display:flex;"><span>	Mkv
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> ProcessVideoFiles(IEnumerable&lt;FileInfo&gt; files)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">var</span> allValidVideoFileExtensions = Enum.GetValues(<span style="color:#66d9ef">typeof</span>(ValidVideoFileExtension));
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">foreach</span>(<span style="color:#66d9ef">var</span> file <span style="color:#66d9ef">in</span> files)
+</span></span><span style="display:flex;"><span>	{
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">if</span>(allValidVideoFileExtensions.Contains(file.Extension))
+</span></span><span style="display:flex;"><span>		{
+</span></span><span style="display:flex;"><span>			<span style="color:#75715e">// Process the video file.</span>
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>In the first example to add a new valid extension it is necessary to change the <code>enum</code> <strong>and</strong> the <code>ProcessVideoFiles</code> method.
+This means that the implementation of the <code>ProcessVideoFiles</code> method is not closed to changes.</p>
+<p>In the second just adding a new member to the <code>ValidVideoFileExtension</code> <code>enum</code> is enough for the <code>ProcessVideoFiles</code> method to take it into account.
+So the second approach is <em>open to extension</em> while remaining <em>closed to changes</em>.</p>
+<h2 id="3--liskov-substitution-principle">3 | Liskov Substitution Principle<a class="anchorjs-link" href="#3--liskov-substitution-principle"></a></h2><p>The <em>Liskov Substitution Principle</em> states that when extending a class or implementing an interface we must comply with the entire public contract.
+This means that we should&rsquo;t have methods with no implementation whatsoever (looking at you <code>NotImplementedException</code>).</p>
+<p>❌ Don&rsquo;t:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">IncompleteFileProvider</span> : IFileProvider
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> IDirectoryContents InternalGetDirectoryContents(<span style="color:#66d9ef">string</span> subpath) { <span style="color:#75715e">/* Implementation omitted. */</span>}
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> IFileInfo InternalGetFileInfo(<span style="color:#66d9ef">string</span> subpath) { <span style="color:#75715e">/* Implementation omitted. */</span>}
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> IChangeToken InternalWatch(<span style="color:#66d9ef">string</span> filter) { <span style="color:#75715e">/* Implementation omitted. */</span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> IDirectoryContents GetDirectoryContents(<span style="color:#66d9ef">string</span> subpath)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> NotImplementedException();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> IFileInfo GetFileInfo(<span style="color:#66d9ef">string</span> subpath)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        ArgumentNullException.ThrowIfNull(subpath, nameof(subpath));
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> InternalGetFileInfo(subpath);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> IChangeToken Watch(<span style="color:#66d9ef">string</span> filter)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        ArgumentNullException.ThrowIfNull(filter, nameof(filter));
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> InternalWatch(filter);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>✔️ Do:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CompleteFileProvider</span> : IFileProvider
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> IDirectoryContents InternalGetDirectoryContents(<span style="color:#66d9ef">string</span> subpath) { <span style="color:#75715e">/* Implementation omitted. */</span>}
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> IFileInfo InternalGetFileInfo(<span style="color:#66d9ef">string</span> subpath) { <span style="color:#75715e">/* Implementation omitted. */</span>}
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> IChangeToken InternalWatch(<span style="color:#66d9ef">string</span> filter) { <span style="color:#75715e">/* Implementation omitted. */</span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> IDirectoryContents GetDirectoryContents(<span style="color:#66d9ef">string</span> subpath)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        ArgumentNullException.ThrowIfNull(subpath, nameof(subpath));
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> InternalGetDirectoryContents(subpath);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> IFileInfo GetFileInfo(<span style="color:#66d9ef">string</span> subpath)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        ArgumentNullException.ThrowIfNull(subpath, nameof(subpath));
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> InternalGetFileInfo(subpath);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> IChangeToken Watch(<span style="color:#66d9ef">string</span> filter)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        ArgumentNullException.ThrowIfNull(filter, nameof(filter));
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> InternalWatch(filter);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>In the first example the <code>IncompleteFileProvider</code> class does not provide all the functionality of the <code>IFileProvider</code> interface, so it cannot be used in <em>any and all situations</em> where an <code>IFileProvider</code> is expected.</p>
+<p>In the second example <code>CompleteFileProvider</code> does not violate the <strong>Liskov Substitution Principle</strong> as it implements all methods of <code>IFileProvider</code>.</p>
+<h2 id="4--interface-segregation">4 | Interface Segregation<a class="anchorjs-link" href="#4--interface-segregation"></a></h2><p>The <em>Segregation of interfaces</em> principle defines that we should group responsibilities under the same interface.
+This means having more, smaller interfaces.</p>
+<p>❌ Não faça isso:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">ICar</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">double</span> Height { <span style="color:#66d9ef">get</span>; }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">double</span> Width { <span style="color:#66d9ef">get</span>; }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">double</span> Length { <span style="color:#66d9ef">get</span>; }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> NumberOfDoors { <span style="color:#66d9ef">get</span>; }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> NumberOfCylinders { <span style="color:#66d9ef">get</span>; }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> HorsePower { <span style="color:#66d9ef">get</span>; }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">string</span> SuspensionStiffness { <span style="color:#66d9ef">get</span>; }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>✔️ Faça isso:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">ICar</span> : IVehicle
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> NumberOfDoors { <span style="color:#66d9ef">get</span>; }
+</span></span><span style="display:flex;"><span>    IEngine Engine { <span style="color:#66d9ef">get</span>; }
+</span></span><span style="display:flex;"><span>    ISuspension Suspension { <span style="color:#66d9ef">get</span>; }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">IVehicle</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">double</span> Height { <span style="color:#66d9ef">get</span>; }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">double</span> Width { <span style="color:#66d9ef">get</span>; }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">double</span> Length { <span style="color:#66d9ef">get</span>; }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">IEngine</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> NumberOfCylinders { <span style="color:#66d9ef">get</span>; }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> HorsePower { <span style="color:#66d9ef">get</span>; }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">ISuspension</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">string</span> Stiffness { <span style="color:#66d9ef">get</span>; }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>While refactoring:</p>
+<ol>
+<li>The <code>Height</code>, <code>Width</code> and <code>Length</code> properties have been grouped into <code>IVehicle</code>. This makes sense because an <code>IBus</code>, for example, is also an <code>IVehicle</code>.</li>
+<li><code>NumberOfDoors</code> sticks to <code>ICar</code> as in this scenario it doesn&rsquo;t make sense for all vehicles - think <code>IBike</code>, <code>IShip</code> or <code>ITank</code>.</li>
+<li><code>NumberOfCylinders</code> and <code>HorsePower</code> have been grouped into <code>IEngine</code>. This provides a single interface to access all of the vehicle&rsquo;s engine properties.</li>
+<li>Moved <code>SuspensionStiffness</code> to <code>ISuspension</code>. The value of this interface lies in better representing the model (vehicle).</li>
+</ol>
+<h2 id="5--depencency-injection">5 | Depencency Injection<a class="anchorjs-link" href="#5--depencency-injection"></a></h2><p><em>Dependency Injection</em> is transferring responsibility for creating dependencies to the consumer of the class.</p>
+<p>❌ Não faça isso:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyBusinessEntity</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> IFileProvider _fileProvider;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">string</span> _rootDirectory = <span style="color:#e6db74">&#34;C:\temp&#34;</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">string</span> _allFilesFilter = <span style="color:#e6db74">&#34;*.*&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    MyBusinessEntity()
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        _fileProvider = <span style="color:#66d9ef">new</span> PhysicalFileProvider(_rootDirectory);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> MyBusinessMethod()
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> changeToken = _fileProvider.Watch(_allFilesFilter);
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Implementation omitted for brevity.</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>✔️ Faça isso:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyBusinessEntity</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> IFileProvider _fileProvider;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">string</span> _allFilesFilter = <span style="color:#e6db74">&#34;*.*&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    MyBusinessEntity(IFileProvider fileProvider)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        _fileProvider = fileProvider;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> MyBusinessMethod()
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> changeToken = _fileProvider.Watch(_allFilesFilter);
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Implementation omitted for brevity.</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>On the first example the <code>MyBusinessEntity</code> dependencies are defined by the class itself - it has full control of the execution</p>
+<p>On the second example the <code>MyBusinessEntity</code> dependencies are <em>injected</em> by the class consumer,
+allowing <code>MyBusinessEntity</code> to be more flexible (it is no longer coupled with <code>PhysicalFileProvider</code> and no longer need to worry about the root directory).
+This approach also enables testing using mocks - which would have not been possible on the first example.</p>
+<h2 id="tldr">TL;DR<a class="anchorjs-link" href="#tldr"></a></h2><p>The 5 principles of <strong>SOLID</strong> are great object-oriented design guides.
+Following these principles, most of the time, leads to more extensible and testable code.</p>
+
+
+        <hr style="visibility: hidden;" />
+        <ul class="pager">
+          
+          
+          <li class="next">
+            <a href="/pt-br/linq-com-desenhos-ienumerable-vs-iqueryable-qual-a-diferenca/" data-toggle="tooltip" data-placement="top" title="IEnumerable vs IQueryable - Qual a diferença?">
+              Next<br>
+              <span>IEnumerable vs IQueryable - Qual a diferença?</span>
+            </a>
+          </li>
+          
+        </ul>
+        <hr style="visibility: hidden;" />
+
+        
+        
+
+
+
+    <div class="giscus" id="comments"></div>
+    <script src="https://giscus.app/client.js"
+            data-repo="JeffersonAmori/DeviCode"
+            data-repo-id="R_kgDOIz_rQw"
+            data-category="Announcements"
+            data-category-id="DIC_kwDOIz_rQ84CTtV0"
+            data-mapping="og:title"
+            data-strict="0"
+            data-reactions-enabled="1"
+            data-emit-metadata="0"
+            data-input-position="top"
+            data-theme="light"
+            data-lang="pt"
+            crossorigin="anonymous">
+    </script>
+
+
+
+
+      </div>
+
+      
+      
+      
+      <div class="
+              col-lg-2 col-lg-offset-0
+              visible-lg-block
+              sidebar-container
+              catalog-container">
+        <div class="side-catalog">
+          <hr class="hidden-sm hidden-xs">
+          <h5>
+            <a class="catalog-toggle" href="#">CATALOG</a>
+          </h5>
+          <ul class="catalog-body"></ul>
+        </div>
+      </div>
+      
+      
+      <div class="
+              col-lg-8 col-lg-offset-2
+              col-md-10 col-md-offset-1
+              sidebar-container">
+
+        
+        
+        <section>
+  
+  
+  <hr class="hidden-sm hidden-xs">
+  
+  <h5>FEATURED TAGS</h5>
+  <div class="tags">
+    
+    <a href="/tags/csharp/">csharp</a>
+    
+    <a href="/tags/dotnet/">dotnet</a>
+    
+    <a href="/tags/fluent-validation/">Fluent validation</a>
+    
+    <a href="/tags/ienumerable/">IEnumerable</a>
+    
+    <a href="/tags/iqueryable/">IQueryable</a>
+    
+    <a href="/tags/linq/">LINQ</a>
+    
+    <a href="/tags/memory-management/">memory management</a>
+    
+    <a href="/tags/oo/">OO</a>
+    
+    <a href="/tags/software-enginnering/">software enginnering</a>
+    
+    <a href="/tags/solid/">SOLID</a>
+    
+    <a href="/tags/yield/">yield</a>
+    
+  </div>
+</section>
+
+        
+        
+
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+  
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+                <ul class="list-inline text-center"></ul>
+
+                <p class="copyright text-muted">
+                    Copyright &copy; DeviCode 2023
+                    <br>
+                    Powered by <a href="https://gohugo.io">Hugo</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src=/js/jquery.min.js></script>
+<script src=/js/bootstrap.min.js crossorigin="anonymous"></script>
+
+
+
+<script src="/js/hux-blog.min.73a6a8d8df45293e042d15867416f603045bbeb98406731e5022d6c60388cd9d.js"></script>
+
+
+<script src=/js/simple-jekyll-search.min.js></script>
+
+
+<script src="/js/search.min.53bce5da475b4d362500e5ce5dddfa22e20e1b9018777411d2020b4b839c9310.js"></script>
+
+
+
+
+
+
+<script type="text/javascript">
+  function generateCatalog(selector) {
+    _containerSelector = 'div.post-container'
+    
+    var P = $(_containerSelector), a, n, t, l, i, c;
+    a = P.find('h1,h2,h3,h4');
+    
+    $(selector).html('')
+    
+    a.each(function () {
+      n = $(this).prop('tagName').toLowerCase();
+      i = "#" + $(this).prop('id');
+      t = $(this).text();
+      c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+      l = $('<li class="' + n + '_nav"></li>').append(c);
+      $(selector).append(l);
+    });
+    return true;
+  }
+
+  generateCatalog(".catalog-body");
+
+  
+  $(".catalog-toggle").click((function (e) {
+    e.preventDefault();
+    $('.side-catalog').toggleClass("fold")
+  }))
+</script>
+
+
+<script type="text/javascript" src='/js/jquery.nav.min.ade6bde8f9fcc6a4b40852cb892e9f5912340ab8fe1305149d917fdd16fffd8d.js'></script>
+<script>
+   $(document).ready( function () {
+    $('.catalog-body').onePageNav({
+      currentClass: "active",
+      changeHash: !1,
+      easing: "swing",
+      filter: "",
+      scrollSpeed: 700,
+      scrollOffset: 0,
+      scrollThreshold: .2,
+      begin: null,
+      end: null,
+      scrollChange: null,
+      padding: 80
+    });
+  });
+</script>
+
+
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-65SCCZ7Y92"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-65SCCZ7Y92', { 'anonymize_ip': false });
+}
+</script>
+
+
+
+
+<script src="/zoomjs/zoom.min.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>OO on DeviCode</title>
+    <link>https://devicode.io/tags/oo/</link>
+    <description>Recent content in OO on DeviCode</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 23 Jan 2023 08:33:15 +0000</lastBuildDate><atom:link href="https://devicode.io/tags/oo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>#002 | The 5 SOLID principles</title>
+      <link>https://devicode.io/posts/002-the-5-solid-principles/</link>
+      <pubDate>Mon, 23 Jan 2023 08:33:15 +0000</pubDate>
+      
+      <guid>https://devicode.io/posts/002-the-5-solid-principles/</guid>
+      <description>S.O.L.I.D.The 5 principles of SOLID are:
+S - Single Responsibility - Single Responsibility
+O - Open/Closed Principle - Open/Closed Principle
+L - Liskov Substitution Principle - Liskov Substitution Principle
+I - Interface Segregation - Segregation of interfaces
+D - Depencency Injection - Dependency Injection
+1 | Single ResponsabilityThe principle of single responsibility determines that each member of the system has only one responsibility. Methods must have a single and clear function - it is a bad sign if you have to use the conjunction And in the method&amp;rsquo;s name.</description>
+    </item>
+    
+  </channel>
+</rss>

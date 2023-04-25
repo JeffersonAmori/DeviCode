@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on DeviCode</title>
+    <link>https://devicode.io/categories/</link>
+    <description>Recent content in Categories on DeviCode</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 30 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://devicode.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>csharp</title>
+      <link>https://devicode.io/categories/csharp/</link>
+      <pubDate>Mon, 30 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://devicode.io/categories/csharp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>IEnumerable</title>
+      <link>https://devicode.io/categories/ienumerable/</link>
+      <pubDate>Mon, 30 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://devicode.io/categories/ienumerable/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>IQueryable</title>
+      <link>https://devicode.io/categories/iqueryable/</link>
+      <pubDate>Mon, 30 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://devicode.io/categories/iqueryable/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>LINQ</title>
+      <link>https://devicode.io/categories/linq/</link>
+      <pubDate>Mon, 30 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://devicode.io/categories/linq/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>yield</title>
+      <link>https://devicode.io/categories/yield/</link>
+      <pubDate>Mon, 30 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://devicode.io/categories/yield/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

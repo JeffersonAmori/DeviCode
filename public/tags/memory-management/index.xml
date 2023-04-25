@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>memory management on DeviCode</title>
+    <link>https://devicode.io/tags/memory-management/</link>
+    <description>Recent content in memory management on DeviCode</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 30 Jan 2023 05:22:47 +0000</lastBuildDate><atom:link href="https://devicode.io/tags/memory-management/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>#003 | Value types are not always allocated onto the stack</title>
+      <link>https://devicode.io/posts/003-value-types-are-not-always-allocated-onto-the-stack/</link>
+      <pubDate>Mon, 30 Jan 2023 05:22:47 +0000</pubDate>
+      
+      <guid>https://devicode.io/posts/003-value-types-are-not-always-allocated-onto-the-stack/</guid>
+      <description>Background.Net has two ways to allocate variables in memory: stack and heap.
+A stack stores all variables of type value within the execution scope of the current frame. The heap stores all reference-type objects.
+The big difference between these two structures is that the memory allocated on the stack is released after the execution of the frame, while what is on the heap is deallocated by the garbage collector.
+⭐Important: the application stops all processing while the garbage collector is running, so many allocations into the heap can result in performance degradation.</description>
+    </item>
+    
+  </channel>
+</rss>

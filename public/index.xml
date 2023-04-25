@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>DeviCode</title>
+    <link>https://devicode.io/</link>
+    <description>Recent content on DeviCode</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 27 Feb 2023 06:12:03 +0000</lastBuildDate><atom:link href="https://devicode.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>#007 | Realtime communication with SignalR</title>
+      <link>https://devicode.io/posts/007-real-time-communication-using-signalr/</link>
+      <pubDate>Mon, 27 Feb 2023 06:12:03 +0000</pubDate>
+      
+      <guid>https://devicode.io/posts/007-real-time-communication-using-signalr/</guid>
+      <description>SignalRSignalR is .Net&amp;rsquo;s solution to realtime communications. It enables the creation of hubs and then efficiently route all messages to all clients.
+You can checkout this Hi-Lo Game which leverages SignalR (source).
+The idea is that all messages from all player (and also the game engine) are broadcasted to all players (connect to.
+The implementationServer sideGameHub.cs
+A cluster of connections is called a hub. The two main methods of our hub are the Guess and WriteToPageAsync methods:</description>
+    </item>
+    
+    <item>
+      <title>#006 | The problem with ILogger</title>
+      <link>https://devicode.io/posts/006-the-problem-with-ilogger/</link>
+      <pubDate>Mon, 20 Feb 2023 06:12:03 +0000</pubDate>
+      
+      <guid>https://devicode.io/posts/006-the-problem-with-ilogger/</guid>
+      <description>The problem with ILoggerThe current implementation of ILogger uses object[] in its signatures, which means any value passed to it either 1) is already on the heap or 2) is boxed.
+Log(ILogger, LogLevel, Exception, String, Object[]) Now consider the app logs the salary of any given Employee:
+class Employee { public int Id { get; set; } public string Name { get; set; } public DateTime DateOfBirth { get; set; } public decimal Salary { get; set; } } // Creating the Employee.</description>
+    </item>
+    
+    <item>
+      <title>#005 | What are Fluent Validation and how to use them</title>
+      <link>https://devicode.io/posts/005-what-are-fluent-assertions-how-to-use-them/</link>
+      <pubDate>Mon, 13 Feb 2023 03:32:12 +0000</pubDate>
+      
+      <guid>https://devicode.io/posts/005-what-are-fluent-assertions-how-to-use-them/</guid>
+      <description>Why would anyone use Fluent Validations?Consider the following Employee class:
+class Employee { public int Id { get; set; } public string Name { get; set; } public DateTime DateOfBirth {get; set; } } When we use fluent validation, we are not forced to separate our validation logic into another class, but it enables us to do so. For example, an app might have a general validation for any given employee, but the Finance module has more rules for the same class.</description>
+    </item>
+    
+    <item>
+      <title>#004 | Different types of delegates in C#</title>
+      <link>https://devicode.io/posts/004-the-different-types-of-delegate-csharp/</link>
+      <pubDate>Mon, 06 Feb 2023 02:06:06 +0000</pubDate>
+      
+      <guid>https://devicode.io/posts/004-the-different-types-of-delegate-csharp/</guid>
+      <description>Delegates em C#Delegates are used to refer to methods. In the same way that int is used for integers and string for text, we use delegate to refer to methods.
+In practiceConsider the following code:
+delegate string? Serialize(object value, JsonSerializerOptions? options = null); delegate object? Deserialize(string value, Type returnType, JsonSerializerOptions? options = null); class BusinessSerializer { Serialize PointerToExternalMethodSerialize { get; } Deserialize PointerToExternalMethodDeserialize { get; } AnyClass(Serialize referenceToSomeSerializeMethod, Deserialize referenceToSomeDeserializeMethod) { PointerToExternalMethodSerialize = referenceToSomeSerializeMethod; PointerToExternalMethodDeserialize = referenceToSomeDeserializeMethod; } string?</description>
+    </item>
+    
+    <item>
+      <title>#003 | Value types are not always allocated onto the stack</title>
+      <link>https://devicode.io/posts/003-value-types-are-not-always-allocated-onto-the-stack/</link>
+      <pubDate>Mon, 30 Jan 2023 05:22:47 +0000</pubDate>
+      
+      <guid>https://devicode.io/posts/003-value-types-are-not-always-allocated-onto-the-stack/</guid>
+      <description>Background.Net has two ways to allocate variables in memory: stack and heap.
+A stack stores all variables of type value within the execution scope of the current frame. The heap stores all reference-type objects.
+The big difference between these two structures is that the memory allocated on the stack is released after the execution of the frame, while what is on the heap is deallocated by the garbage collector.
+⭐Important: the application stops all processing while the garbage collector is running, so many allocations into the heap can result in performance degradation.</description>
+    </item>
+    
+    <item>
+      <title>Generator-Function in C# - como o yield funciona?</title>
+      <link>https://devicode.io/pt-br/linq-com-desenhos-generator-functions-como-funciona-o-yield/</link>
+      <pubDate>Mon, 30 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://devicode.io/pt-br/linq-com-desenhos-generator-functions-como-funciona-o-yield/</guid>
+      <description>Vamos ver um pequeno exemplo para examinar o comportamento. Criamos uma pequena aplicação de console que tem um &amp;ldquo;gerador de string&amp;rdquo;. Implementaremos o gerador com a palavra-chave yield. Isso significa que estamos obtendo nossas strings &amp;ldquo;uma por vez&amp;rdquo; e não todo o conteúdo de uma só vez. Para tornar as coisas mais interessantes, saímos do loop quando recebemos dois elementos do gerador.
+using System; using System.Collections.Generic;	public class Program { public static void Main() { var loopCounter = 0; Console.</description>
+    </item>
+    
+    <item>
+      <title>IEnumerable vs IQueryable - Qual a diferença?</title>
+      <link>https://devicode.io/pt-br/linq-com-desenhos-ienumerable-vs-iqueryable-qual-a-diferenca/</link>
+      <pubDate>Mon, 30 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://devicode.io/pt-br/linq-com-desenhos-ienumerable-vs-iqueryable-qual-a-diferenca/</guid>
+      <description>Vamos começar devagar: IQueryable estende IEnumerable. O que isso significa? Bem, o que quer que você queira fazer com IEnumerable, você também pode fazer com IQueryable. Portanto, deve haver algumas diferenças conceituais entre os dois. Pequeno aviso: quando falo de IEnumerable ou IQueryable, refiro-me à variação genérica. Porém a maioria do que é dito aqui também se aplica à versão não genérica que foi usada antes do .NET 2.
+Em primeiro lugar, podemos ver que ambos vivem em namespaces totalmente diferentes:</description>
+    </item>
+    
+    <item>
+      <title>#002 | The 5 SOLID principles</title>
+      <link>https://devicode.io/posts/002-the-5-solid-principles/</link>
+      <pubDate>Mon, 23 Jan 2023 08:33:15 +0000</pubDate>
+      
+      <guid>https://devicode.io/posts/002-the-5-solid-principles/</guid>
+      <description>S.O.L.I.D.The 5 principles of SOLID are:
+S - Single Responsibility - Single Responsibility
+O - Open/Closed Principle - Open/Closed Principle
+L - Liskov Substitution Principle - Liskov Substitution Principle
+I - Interface Segregation - Segregation of interfaces
+D - Depencency Injection - Dependency Injection
+1 | Single ResponsabilityThe principle of single responsibility determines that each member of the system has only one responsibility. Methods must have a single and clear function - it is a bad sign if you have to use the conjunction And in the method&amp;rsquo;s name.</description>
+    </item>
+    
+  </channel>
+</rss>
